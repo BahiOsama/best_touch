@@ -46,7 +46,7 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
               icon: SizedBox(
                 height: 33.r,
                 child: Icon(
-                  size: 32,
+                  size: 32.r,
                   Icons.home,
                   color: currentIndex == 0
                       ? AppColors.secondColor

@@ -97,7 +97,7 @@ class _NormalWashState extends State<NormalWash> {
         slivers: [
           SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 20.r),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -116,7 +116,8 @@ class _NormalWashState extends State<NormalWash> {
               (context, index) {
                 return Padding(
                   padding:
-                      const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
+                      const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20)
+                          .r,
                   child: Row(
                     children: [
                       Image.asset(
@@ -137,7 +138,7 @@ class _NormalWashState extends State<NormalWash> {
           SliverToBoxAdapter(
             child: Padding(
               padding:
-                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
+                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20).r,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -156,18 +157,18 @@ class _NormalWashState extends State<NormalWash> {
               childCount: additionalServicesSelected.length,
               (context, index) {
                 return Padding(
-                  padding: const EdgeInsets.only(right: 4, left: 12),
+                  padding: const EdgeInsets.only(right: 4, left: 12).r,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Row(
                         children: [
                           Transform.scale(
-                            scale: 1.2,
+                            scale: 1.2.r,
                             child: Checkbox(
                               activeColor: Colors.green,
                               shape: ContinuousRectangleBorder(
-                                  borderRadius: BorderRadius.circular(6)),
+                                  borderRadius: BorderRadius.circular(6.r)),
                               focusColor: AppColors.whiteColor,
                               side: const BorderSide(
                                   color: AppColors.transperantBlack),
@@ -200,7 +201,7 @@ class _NormalWashState extends State<NormalWash> {
           SliverToBoxAdapter(
             child: Padding(
               padding:
-                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
+                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20).r,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -219,18 +220,18 @@ class _NormalWashState extends State<NormalWash> {
               childCount: 5,
               (context, index) {
                 return Padding(
-                  padding: const EdgeInsets.only(right: 4, left: 12),
+                  padding: const EdgeInsets.only(right: 4, left: 12).r,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Row(
                         children: [
                           Transform.scale(
-                            scale: 1.2,
+                            scale: 1.2.r,
                             child: Checkbox(
                               activeColor: Colors.green,
                               shape: ContinuousRectangleBorder(
-                                  borderRadius: BorderRadius.circular(6)),
+                                  borderRadius: BorderRadius.circular(6.r)),
                               focusColor: AppColors.whiteColor,
                               side: const BorderSide(
                                   color: AppColors.transperantBlack),
@@ -265,12 +266,12 @@ class _NormalWashState extends State<NormalWash> {
         decoration: const BoxDecoration(
           border: Border(top: BorderSide(color: Colors.black12)),
         ),
-        margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8).r,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 12.0),
+              padding: const EdgeInsets.only(top: 12.0).r,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -286,7 +287,7 @@ class _NormalWashState extends State<NormalWash> {
             ),
             if (additionalServicesSelected.contains(true))
               Padding(
-                padding: const EdgeInsets.only(top: 6.0),
+                padding: EdgeInsets.only(top: 6.0.r),
                 child: Column(
                   children: [
                     Row(
@@ -302,7 +303,7 @@ class _NormalWashState extends State<NormalWash> {
                       ],
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 6.0),
+                      padding: EdgeInsets.only(top: 6.0.r),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [

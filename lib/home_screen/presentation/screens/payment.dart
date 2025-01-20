@@ -58,7 +58,8 @@ class _PaymentState extends State<Payment> {
                     color: Colors.white,
                     child: Container(
                       padding: const EdgeInsets.symmetric(
-                          vertical: 36, horizontal: 60),
+                              vertical: 36, horizontal: 60)
+                          .r,
                       child: Center(
                         child: Column(
                           children: [
@@ -83,7 +84,8 @@ class _PaymentState extends State<Payment> {
                     color: Colors.white,
                     child: Container(
                       padding: const EdgeInsets.symmetric(
-                          vertical: 35, horizontal: 40),
+                              vertical: 35, horizontal: 40)
+                          .r,
                       child: Center(
                         child: Column(
                           children: [
@@ -125,7 +127,7 @@ class _PaymentState extends State<Payment> {
                     right: 24,
                     left: 12,
                     bottom: 18,
-                  ),
+                  ).r,
                   child: Row(
                     children: [
                       Image.asset(AppImages.wallet),
@@ -152,11 +154,11 @@ class _PaymentState extends State<Payment> {
                 color: Colors.white,
                 child: Container(
                   padding:
-                      const EdgeInsets.symmetric(vertical: 4, horizontal: 12),
+                      const EdgeInsets.symmetric(vertical: 4, horizontal: 12).r,
                   child: Row(
                     children: [
                       Transform.scale(
-                        scale: 1.3,
+                        scale: 1.3.r,
                         child: Radio(
                           value: 1,
                           groupValue: currentOption,
@@ -189,7 +191,7 @@ class _PaymentState extends State<Payment> {
                 color: Colors.white,
                 child: Container(
                   padding:
-                      const EdgeInsets.symmetric(vertical: 4, horizontal: 12),
+                      const EdgeInsets.symmetric(vertical: 4, horizontal: 12).r,
                   child: Row(
                     children: [
                       Transform.scale(
@@ -219,12 +221,12 @@ class _PaymentState extends State<Payment> {
       bottomNavigationBar: Container(
         decoration: const BoxDecoration(
             border: Border(top: BorderSide(color: Colors.black12))),
-        margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8).r,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 12.0),
+              padding: const EdgeInsets.only(top: 12.0).r,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -240,7 +242,7 @@ class _PaymentState extends State<Payment> {
             ),
             if (additionalServicesSelected.contains(true))
               Padding(
-                padding: const EdgeInsets.only(top: 6.0),
+                padding: const EdgeInsets.only(top: 6.0).r,
                 child: Column(
                   children: [
                     Row(
@@ -256,7 +258,7 @@ class _PaymentState extends State<Payment> {
                       ],
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 6.0),
+                      padding: const EdgeInsets.only(top: 6.0).r,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [

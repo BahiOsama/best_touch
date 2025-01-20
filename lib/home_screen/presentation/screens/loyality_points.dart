@@ -51,7 +51,7 @@ class _LoyaltyPointsState extends State<LoyaltyPoints> {
                       decoration: BoxDecoration(
                         border:
                             Border.all(color: Colors.black12.withOpacity(.070)),
-                        borderRadius: BorderRadius.circular(5),
+                        borderRadius: BorderRadius.circular(5.r),
                       ),
                       child: Column(
                         children: [
@@ -77,21 +77,21 @@ class _LoyaltyPointsState extends State<LoyaltyPoints> {
                           Row(
                             children: [
                               SizedBox(
-                                height: 33,
+                                height: 33.r,
                                 child: Image.asset(
                                   AppImages.gift3,
                                   fit: BoxFit.contain,
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(top: 12),
+                                padding: EdgeInsets.only(top: 12.r),
                                 child: Container(
-                                  width: 330,
-                                  height: 15,
+                                  width: 330.r,
+                                  height: 15.r,
                                   decoration: BoxDecoration(
                                     color:
                                         AppColors.secondColor.withOpacity(.1),
-                                    borderRadius: BorderRadius.circular(5),
+                                    borderRadius: BorderRadius.circular(5.r),
                                   ),
                                   child: Row(
                                     children: [
@@ -109,11 +109,11 @@ class _LoyaltyPointsState extends State<LoyaltyPoints> {
                                                         : buttonPressCount == 5
                                                             ? 330
                                                             : 0,
-                                        height: 15,
+                                        height: 15.r,
                                         decoration: BoxDecoration(
                                           color: AppColors.secondColor,
                                           borderRadius:
-                                              BorderRadius.circular(5),
+                                              BorderRadius.circular(5.r),
                                         ),
                                       ),
                                     ],
@@ -125,8 +125,8 @@ class _LoyaltyPointsState extends State<LoyaltyPoints> {
                           5.verticalSpace,
                           Text(
                             "$buttonPressCount / 5",
-                            style: const TextStyle(
-                                fontSize: 14, color: Colors.black),
+                            style:
+                                TextStyle(fontSize: 14.r, color: Colors.black),
                           ),
                           15.verticalSpace,
                           ElevatedButton(

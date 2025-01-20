@@ -52,8 +52,8 @@ class _ReservationsState extends State<Reservations> {
                   textColor: isCurrentSelected
                       ? AppColors.whiteColor
                       : AppColors.transperantBlack,
-                  width: 185,
-                  height: 45,
+                  width: 185.r,
+                  height: 45.r,
                 ),
                 ConfirmOrGoBackk(
                   onTap: () {
@@ -68,8 +68,8 @@ class _ReservationsState extends State<Reservations> {
                       ? AppColors.transperantBlack
                       : AppColors.whiteColor,
                   text: 'Previous'.tr(),
-                  width: 185,
-                  height: 45,
+                  width: 185.r,
+                  height: 45.r,
                 ),
               ],
             ),
@@ -78,8 +78,8 @@ class _ReservationsState extends State<Reservations> {
                 height: 600,
                 child: isCurrentSelected
                     ? ListView.separated(
-                        separatorBuilder: (context, index) => const SizedBox(
-                          height: 8,
+                        separatorBuilder: (context, index) => SizedBox(
+                          height: 8.r,
                         ),
                         itemCount: 10,
                         itemBuilder: (context, index) => Card(
@@ -90,7 +90,7 @@ class _ReservationsState extends State<Reservations> {
                               top: 12,
                               bottom: 12,
                               right: 12,
-                            ),
+                            ).r,
                             child: Column(
                               children: [
                                 ListTile(
@@ -131,8 +131,8 @@ class _ReservationsState extends State<Reservations> {
                         ),
                       )
                     : ListView.separated(
-                        separatorBuilder: (context, index) => const SizedBox(
-                          height: 8,
+                        separatorBuilder: (context, index) => SizedBox(
+                          height: 8.r,
                         ),
                         itemCount: 10,
                         itemBuilder: (context, index) => Card(
@@ -175,7 +175,7 @@ class _ReservationsState extends State<Reservations> {
                                       AppColors.secondColor.withOpacity(.1),
                                   textColor: AppColors.secondColor,
                                   text: 'Rate the Order'.tr(),
-                                  width: 300,
+                                  width: 300.r,
                                 ),
                                 8.verticalSpace
                               ],

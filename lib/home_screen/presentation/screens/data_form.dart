@@ -46,7 +46,7 @@ class _DataFormState extends State<DataForm> {
           children: [
             15.verticalSpace,
             Padding(
-              padding: const EdgeInsets.only(right: 4),
+              padding: EdgeInsets.only(right: 4.r),
               child: Row(
                 children: [
                   Image.asset(
@@ -125,7 +125,7 @@ class _DataFormState extends State<DataForm> {
                     ),
                   ),
                 ),
-                const SizedBox(width: 10),
+                SizedBox(width: 10.r),
                 Expanded(
                   child: TextField(
                     decoration: InputDecoration(
@@ -226,7 +226,7 @@ class _DataFormState extends State<DataForm> {
                     gravity: ToastGravity.BOTTOM,
                     backgroundColor: Colors.red,
                     textColor: Colors.white,
-                    fontSize: 16.0,
+                    fontSize: 16.0.r,
                   );
                 } else {
                   showDialog(

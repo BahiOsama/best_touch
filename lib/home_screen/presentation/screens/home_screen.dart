@@ -93,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               image: image);
                         },
                         options: CarouselOptions(
-                          height: 140,
+                          height: 140.r,
                           aspectRatio: 16 / 9,
                           viewportFraction: 0.8,
                           initialPage: 0,
@@ -115,8 +115,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       Positioned(
-                        bottom: 8,
-                        right: 170,
+                        bottom: 8.r,
+                        right: 170.r,
                         child: DotsIndicator(
                           decorator: const DotsDecorator(
                             activeColor: Colors.yellow,

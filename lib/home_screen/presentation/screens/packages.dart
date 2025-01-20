@@ -89,8 +89,8 @@ class _PackagesState extends State<Packages> {
                               ? AppColors.transperantBlack
                               : AppColors.whiteColor,
                           text: 'Monthly'.tr(),
-                          width: 185,
-                          height: 45,
+                          width: 185.r,
+                          height: 45.r,
                         ),
                       ],
                     ),
@@ -121,9 +121,10 @@ class _PackagesState extends State<Packages> {
                                 },
                                 child: Container(
                                   padding: const EdgeInsets.symmetric(
-                                      horizontal: 18, vertical: 10),
+                                          horizontal: 18, vertical: 10)
+                                      .r,
                                   decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(6),
+                                    borderRadius: BorderRadius.circular(6.r),
                                     color:
                                         AppColors.secondColor.withOpacity(.1),
                                   ),
@@ -160,9 +161,8 @@ class _PackagesState extends State<Packages> {
                           )
                         : Expanded(
                             child: ListView.separated(
-                              separatorBuilder: (context, index) =>
-                                  const SizedBox(
-                                height: 12,
+                              separatorBuilder: (context, index) => SizedBox(
+                                height: 12.r,
                               ),
                               itemCount: 7,
                               itemBuilder: (context, index) {
@@ -178,7 +178,7 @@ class _PackagesState extends State<Packages> {
                 child: LoadingAnimationWidget.flickr(
                   leftDotColor: AppColors.secondColor,
                   rightDotColor: AppColors.whiteColor,
-                  size: 50,
+                  size: 50.r,
                 ),
               );
             } else {

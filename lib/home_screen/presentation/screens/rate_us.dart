@@ -84,18 +84,19 @@ class _RateUsState extends State<RateUs> {
                 TextField(
                   controller: texteditingController,
                   maxLines: 7,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     fillColor: Colors.white,
                     enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black26),
-                        borderRadius: BorderRadius.all(Radius.circular(8))),
+                        borderSide: const BorderSide(color: Colors.black26),
+                        borderRadius: BorderRadius.all(Radius.circular(8.r))),
                     focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: AppColors.secondColor),
-                        borderRadius: BorderRadius.all(Radius.circular(8))),
+                        borderSide:
+                            const BorderSide(color: AppColors.secondColor),
+                        borderRadius: BorderRadius.all(Radius.circular(8.r))),
                     filled: true,
-                    focusedErrorBorder: OutlineInputBorder(
+                    focusedErrorBorder: const OutlineInputBorder(
                         borderSide: BorderSide(color: AppColors.redColor)),
-                    errorBorder: OutlineInputBorder(
+                    errorBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.redAccent),
                     ),
                   ),
@@ -106,7 +107,7 @@ class _RateUsState extends State<RateUs> {
         ),
       ),
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(14),
+        padding: EdgeInsets.all(14.r),
         child: ConfirmOrGoBackk(
           text: 'Done'.tr(),
           onTap: () {

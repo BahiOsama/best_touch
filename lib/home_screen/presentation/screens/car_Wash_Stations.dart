@@ -52,7 +52,7 @@ class _CarWashStationsState extends State<CarWashStations> {
                       ),
                     ),
                     backgroundColor: Colors.white,
-                    expandedHeight: 30,
+                    expandedHeight: 30.r,
                     floating: false,
                     pinned: true,
                   ),

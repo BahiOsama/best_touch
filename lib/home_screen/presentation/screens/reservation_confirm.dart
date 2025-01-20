@@ -53,7 +53,7 @@ class _ReservationConfirmState extends State<ReservationConfirm> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 12, right: 20, left: 20),
+        padding: const EdgeInsets.only(top: 12, right: 20, left: 20).r,
         child: CustomScrollView(
           slivers: [
             SliverToBoxAdapter(
@@ -62,13 +62,13 @@ class _ReservationConfirmState extends State<ReservationConfirm> {
                 color: Colors.white,
                 child: Container(
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(4),
+                      borderRadius: BorderRadius.circular(4.r),
                       border: Border.all(color: Colors.black12)),
                   padding: const EdgeInsets.only(
                     top: 12,
                     bottom: 12,
                     right: 12,
-                  ),
+                  ).r,
                   child: ListTile(
                     title: Row(
                       children: [
@@ -127,7 +127,8 @@ class _ReservationConfirmState extends State<ReservationConfirm> {
                 (context, index) {
                   return Padding(
                     padding: const EdgeInsets.symmetric(
-                        vertical: 8.0, horizontal: 20),
+                            vertical: 8.0, horizontal: 20)
+                        .r,
                     child: Row(
                       children: [
                         Image.asset(
@@ -170,7 +171,7 @@ class _ReservationConfirmState extends State<ReservationConfirm> {
                               child: Checkbox(
                                 activeColor: Colors.green,
                                 shape: ContinuousRectangleBorder(
-                                    borderRadius: BorderRadius.circular(6)),
+                                    borderRadius: BorderRadius.circular(6.r)),
                                 focusColor: AppColors.whiteColor,
                                 side: const BorderSide(
                                     color: AppColors.transperantBlack),
@@ -206,7 +207,7 @@ class _ReservationConfirmState extends State<ReservationConfirm> {
                               child: Checkbox(
                                 activeColor: Colors.green,
                                 shape: ContinuousRectangleBorder(
-                                    borderRadius: BorderRadius.circular(6)),
+                                    borderRadius: BorderRadius.circular(6.r)),
                                 focusColor: AppColors.whiteColor,
                                 side: const BorderSide(
                                     color: AppColors.transperantBlack),
@@ -229,12 +230,12 @@ class _ReservationConfirmState extends State<ReservationConfirm> {
       bottomNavigationBar: Container(
         decoration: const BoxDecoration(
             border: Border(top: BorderSide(color: Colors.black12))),
-        margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8).r,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 12.0),
+              padding: const EdgeInsets.only(top: 12.0).r,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -250,7 +251,7 @@ class _ReservationConfirmState extends State<ReservationConfirm> {
             ),
             if (additionalServicesSelected.contains(true))
               Padding(
-                padding: const EdgeInsets.only(top: 6.0),
+                padding: const EdgeInsets.only(top: 6.0).r,
                 child: Column(
                   children: [
                     Row(
@@ -266,7 +267,7 @@ class _ReservationConfirmState extends State<ReservationConfirm> {
                       ],
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 6.0),
+                      padding: const EdgeInsets.only(top: 6.0).r,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [

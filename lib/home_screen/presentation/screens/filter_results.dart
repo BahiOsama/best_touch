@@ -64,7 +64,7 @@ class _FilterResultsState extends State<FilterResults> {
               decoration:
                   BoxDecoration(border: Border.all(color: Colors.black26)),
               child: SizedBox(
-                height: 500,
+                height: 500.r,
                 child: ListView.builder(
                   shrinkWrap: true,
                   itemCount: options.length,
@@ -79,7 +79,7 @@ class _FilterResultsState extends State<FilterResults> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Transform.scale(
-                            scale: 1.3,
+                            scale: 1.3.r,
                             child: Radio(
                               value: options[index],
                               groupValue: currentOption,
@@ -93,7 +93,7 @@ class _FilterResultsState extends State<FilterResults> {
                           Image.asset(
                             AppImages.smallPhotoForHomeScreennn,
                           ),
-                          const SizedBox(width: 8),
+                          SizedBox(width: 8.r),
                           const Text('كلين أوف')
                         ],
                       ),
@@ -104,7 +104,7 @@ class _FilterResultsState extends State<FilterResults> {
             ),
             15.verticalSpace,
             Container(
-              padding: const EdgeInsets.all(14),
+              padding: EdgeInsets.all(14.r),
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.black26),
               ),

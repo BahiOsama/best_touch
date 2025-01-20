@@ -62,8 +62,8 @@ class Notifications extends StatelessWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const SizedBox(
-                                  height: 26,
+                                SizedBox(
+                                  height: 26.r,
                                 ),
                                 Text(
                                   state.notificationModel[index].title,
@@ -94,17 +94,17 @@ class Notifications extends StatelessWidget {
                           Column(
                             children: [
                               Container(
-                                height: 32,
+                                height: 32.r,
                               ),
                               TextButton(
-                                style: const ButtonStyle(
+                                style: ButtonStyle(
                                   shape: WidgetStatePropertyAll(
                                     ContinuousRectangleBorder(
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(12)),
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(12.r)),
                                     ),
                                   ),
-                                  backgroundColor: WidgetStatePropertyAll(
+                                  backgroundColor: const WidgetStatePropertyAll(
                                     AppColors.secondColor,
                                   ),
                                 ),
@@ -148,7 +148,7 @@ class Notifications extends StatelessWidget {
                 child: LoadingAnimationWidget.flickr(
                   leftDotColor: AppColors.secondColor,
                   rightDotColor: AppColors.whiteColor,
-                  size: 50,
+                  size: 50.r,
                 ),
               ),
             );
