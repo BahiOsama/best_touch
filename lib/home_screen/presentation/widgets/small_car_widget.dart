@@ -77,7 +77,7 @@ class SmallCarWidget extends StatelessWidget {
                               ),
                             );
                           } else {
-                            return const Text('Faileur ...');
+                            return const Text('Faileur  ...');
                           }
                         },
                       ),
