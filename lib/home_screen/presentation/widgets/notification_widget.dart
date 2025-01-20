@@ -97,7 +97,7 @@ class NotificationWidget extends StatelessWidget {
             },
           ),
         ),
-        15.verticalSpace,
+        14.verticalSpace,
       ],
     );
   }
