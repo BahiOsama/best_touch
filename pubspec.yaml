@@ -67,6 +67,7 @@ dependencies:
   webview_flutter_android: ^4.3.1
   webview_flutter_wkwebview: ^3.17.0
   url_launcher: ^6.1.7
+  flutter_native_splash: ^2.4.4
 
 dev_dependencies:
   flutter_test:
@@ -108,7 +109,6 @@ flutter:
     - images/Mark.png
     - images/Arrow---Left.png
     - images/wave (3) 1 2.png
-    - images/Photo.png
     - images/Location 1.png
     - images/Wallet 1.png
     - images/Package.png

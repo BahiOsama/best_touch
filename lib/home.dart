@@ -2,11 +2,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:second_project/auth/presentation/screens/login_screen.dart';
+import 'package:second_project/auth/presentation/screens/splash_screen.dart';
 import 'package:second_project/helper/app_colors.dart';
 import 'package:second_project/helper/get_it.dart';
-import 'package:second_project/helper/local_data/shared_pref.dart';
-import 'package:second_project/home_screen/presentation/screens/bottom_nav_bar_screen.dart';
 import 'package:second_project/profile_screens/domain/repos/profile_repo_impl.dart';
 import 'package:second_project/profile_screens/presentation/cubit/profile_cubit.dart';
 
@@ -24,19 +22,17 @@ class Home extends StatelessWidget {
         splitScreenMode: true,
         builder: (context, child) {
           return MaterialApp(
-            theme: ThemeData(
-                scaffoldBackgroundColor: AppColors.whiteColor,
-                appBarTheme:
-                    const AppBarTheme(backgroundColor: AppColors.whiteColor)),
-            debugShowCheckedModeBanner: false,
-            localizationsDelegates: context.localizationDelegates,
-            supportedLocales: context.supportedLocales,
-            locale: context.locale,
-            home: CashedSharedPrefrances.getData(key: 'token') != ""
-                ? const BottomNavBarScreen()
-                : const LoginScreen(),
-            // home: const LoginScreen(),
-          );
+              theme: ThemeData(
+                  scaffoldBackgroundColor: AppColors.whiteColor,
+                  appBarTheme:
+                      const AppBarTheme(backgroundColor: AppColors.whiteColor)),
+              debugShowCheckedModeBanner: false,
+              localizationsDelegates: context.localizationDelegates,
+              supportedLocales: context.supportedLocales,
+              locale: context.locale,
+              home: const SplashScreen()
+              // home: const LoginScreen(),
+              );
         },
       ),
     );
