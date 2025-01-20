@@ -26,12 +26,16 @@ class LoyalityAndPackagesWidget extends StatelessWidget {
             elevation: 4,
             color: Colors.white,
             child: Container(
-              padding: const EdgeInsets.only(
-                  top: 12, right: 12, left: 6, bottom: 11),
-              width: 170,
-              height: 120,
-              decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(8))),
+              padding:
+                  const EdgeInsets.only(top: 12, right: 12, left: 6, bottom: 11)
+                      .r,
+              width: 170.r,
+              height: 120.r,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(
+                  const Radius.circular(8).r,
+                ),
+              ),
               child: Column(
                 children: [
                   Row(
@@ -72,7 +76,8 @@ class LoyalityAndPackagesWidget extends StatelessWidget {
             color: Colors.white,
             child: Container(
               padding:
-                  const EdgeInsets.only(top: 12, right: 12, left: 6, bottom: 2),
+                  const EdgeInsets.only(top: 12, right: 12, left: 6, bottom: 2)
+                      .r,
               width: 170,
               height: 120,
               decoration: const BoxDecoration(

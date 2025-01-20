@@ -32,7 +32,7 @@ class _CarWashStationShowDialogState extends State<CarWashStationShowDialog> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(8.0).r,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -62,7 +62,7 @@ class _CarWashStationShowDialogState extends State<CarWashStationShowDialog> {
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 4.r),
                     child: Container(
-                      width: 4,
+                      width: 4.r,
                       height: 1.r,
                       color: AppColors.mainColor,
                     ),
@@ -90,7 +90,7 @@ class _CarWashStationShowDialogState extends State<CarWashStationShowDialog> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Transform.scale(
-                        scale: 1.3,
+                        scale: 1.3.r,
                         child: Radio(
                           value: options[index],
                           groupValue: currentOption,

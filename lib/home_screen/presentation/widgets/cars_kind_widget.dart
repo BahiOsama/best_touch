@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:second_project/helper/app_colors.dart';
 import 'package:second_project/helper/app_styles.dart';
@@ -65,7 +66,7 @@ class CarsKindWidget extends StatelessWidget {
         );
       },
       child: Padding(
-        padding: const EdgeInsets.only(bottom: 12),
+        padding: const EdgeInsets.only(bottom: 12).r,
         child: Card(
           elevation: 4,
           color: Colors.white,
@@ -74,11 +75,11 @@ class CarsKindWidget extends StatelessWidget {
               top: 12,
               bottom: 12,
               right: 12,
-            ),
+            ).r,
             child: ListTile(
               leading: Image.network(
                 getCarSize.data![getCarSizeindex].image!,
-                width: 77,
+                width: 77.r,
               ),
               title: Text(
                 getCarSize.data![getCarSizeindex].name!.tr(),
@@ -89,8 +90,8 @@ class CarsKindWidget extends StatelessWidget {
               ),
               trailing: ConfirmOrGoBackk(
                 text: 'Choose'.tr(),
-                width: 65,
-                height: 33,
+                width: 65.r,
+                height: 33.r,
               ),
             ),
           ),

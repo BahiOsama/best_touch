@@ -31,8 +31,8 @@ class NotificationWidget extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(
-                  height: 26,
+                SizedBox(
+                  height: 26.r,
                 ),
                 Text(
                   'Premium Car Wash'.tr(),
@@ -59,13 +59,13 @@ class NotificationWidget extends StatelessWidget {
             Column(
               children: [
                 Container(
-                  height: 32,
+                  height: 32.r,
                 ),
                 TextButton(
-                  style: const ButtonStyle(
+                  style: ButtonStyle(
                     shape: WidgetStatePropertyAll(ContinuousRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(12)))),
-                    backgroundColor: WidgetStatePropertyAll(
+                        borderRadius: BorderRadius.all(Radius.circular(12.r)))),
+                    backgroundColor: const WidgetStatePropertyAll(
                       AppColors.secondColor,
                     ),
                   ),

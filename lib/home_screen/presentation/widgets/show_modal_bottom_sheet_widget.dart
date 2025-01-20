@@ -58,7 +58,7 @@ class _ShowModalBottomSheetWidgetState
       clipBehavior: Clip.none,
       children: [
         Positioned(
-          top: -120,
+          top: -120.r,
           left: 0,
           right: 0,
           child: SizedBox(
@@ -108,7 +108,7 @@ class _ShowModalBottomSheetWidgetState
           ),
         ),
         Positioned(
-          top: -80,
+          top: -80.r,
           right: 25,
           child: InkWell(
             onTap: () {
@@ -120,13 +120,13 @@ class _ShowModalBottomSheetWidgetState
           ),
         ),
         Positioned(
-          top: 110,
+          top: 110.r,
           left: MediaQuery.of(context).size.width * 0.5 -
               (_currentPage > 0 ? (_currentPage * 10) : 10),
           child: DotsIndicator(
-            decorator: const DotsDecorator(
-              size: Size(13.0, 13.0),
-              activeSize: Size(14.0, 14.0),
+            decorator: DotsDecorator(
+              size: Size(13.0.r, 13.0.r),
+              activeSize: Size(14.0.r, 14.0.r),
               activeColor: Colors.yellow,
             ),
             dotsCount: 1,
@@ -150,7 +150,7 @@ class _ShowModalBottomSheetWidgetState
               top: 22,
               right: 20,
               left: 15,
-            ),
+            ).r,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -207,7 +207,7 @@ class _ShowModalBottomSheetWidgetState
                           return Center(
                             child: LoadingAnimationWidget.waveDots(
                               color: AppColors.secondColor,
-                              size: 50,
+                              size: 50.r,
                             ),
                           );
                         } else {
@@ -223,7 +223,7 @@ class _ShowModalBottomSheetWidgetState
           ),
         ),
         Positioned(
-          left: 40,
+          left: 40.r,
           top: MediaQuery.of(context).size.height * 0.155,
           child: GestureDetector(
             onTap: () {

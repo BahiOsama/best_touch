@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:second_project/helper/app_colors.dart';
 import 'package:second_project/helper/app_styles.dart';
@@ -25,19 +26,19 @@ class SmallCarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 12, right: 20, left: 20),
+      padding: const EdgeInsets.only(top: 12, right: 20, left: 20).r,
       child: Card(
         elevation: 4,
         color: Colors.white,
         child: Container(
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(4),
+              borderRadius: BorderRadius.circular(4.r),
               border: Border.all(color: Colors.black12)),
           padding: const EdgeInsets.only(
             top: 12,
             bottom: 12,
             right: 12,
-          ),
+          ).r,
           child: ListTile(
             title: Text(
               getServices.data!.data![index].name!,
@@ -72,7 +73,7 @@ class SmallCarWidget extends StatelessWidget {
                                 child: LoadingAnimationWidget.flickr(
                                   leftDotColor: AppColors.secondColor,
                                   rightDotColor: AppColors.whiteColor,
-                                  size: 50,
+                                  size: 50.r,
                                 ),
                               ),
                             );

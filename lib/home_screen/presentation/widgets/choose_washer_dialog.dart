@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:second_project/helper/app_images.dart';
 
 class ChooseWasherDialog extends StatefulWidget {
@@ -42,7 +43,7 @@ class _ChooseWasherDialogState extends State<ChooseWasherDialog> {
                 shape: ContinuousRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
                 title: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0).r,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -69,7 +70,7 @@ class _ChooseWasherDialogState extends State<ChooseWasherDialog> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Transform.scale(
-                            scale: 1.3,
+                            scale: 1.3.r,
                             child: Radio(
                               value: index,
                               groupValue: currentOption,
@@ -84,8 +85,8 @@ class _ChooseWasherDialogState extends State<ChooseWasherDialog> {
                           Image.asset(
                             AppImages.smallPhotoForHomeScreennn,
                           ),
-                          const SizedBox(
-                            width: 8,
+                          SizedBox(
+                            width: 8.r,
                           ),
                           Text(
                             options[index],
@@ -101,10 +102,10 @@ class _ChooseWasherDialogState extends State<ChooseWasherDialog> {
         );
       },
       child: Container(
-        width: 220,
-        padding: const EdgeInsets.only(top: 7, bottom: 7, right: 12),
+        width: 220.r,
+        padding: const EdgeInsets.only(top: 7, bottom: 7, right: 12).r,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(6),
+          borderRadius: BorderRadius.circular(6).r,
           border: Border.all(
             color: Colors.black26,
           ),

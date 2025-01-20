@@ -26,21 +26,21 @@ class MonthlyPackagesWidget extends StatelessWidget {
             textColor: const Color(
               0xff992600,
             ),
-            fontSize: 16.0);
+            fontSize: 16.0.r);
       },
       child: Card(
         elevation: 4,
         color: Colors.white,
         child: Container(
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(4),
+              borderRadius: BorderRadius.circular(4.r),
               border: Border.all(color: Colors.black12)),
           padding: const EdgeInsets.only(
             top: 12,
             left: 12,
             bottom: 12,
             right: 12,
-          ),
+          ).r,
           child: Row(
             children: [
               Column(

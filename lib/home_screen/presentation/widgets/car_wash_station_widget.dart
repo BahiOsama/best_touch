@@ -67,14 +67,15 @@ class CarWashStationsWidget extends StatelessWidget {
             decoration:
                 BoxDecoration(border: Border.all(color: Colors.black12)),
             padding:
-                const EdgeInsets.only(top: 12, bottom: 12, right: 12, left: 20),
+                const EdgeInsets.only(top: 12, bottom: 12, right: 12, left: 20)
+                    .r,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Image.network(
                   getWashers[index].image ?? AppImages.smallPhotoForHomeScreen,
-                  height: 70,
-                  width: 70,
+                  height: 70.r,
+                  width: 70.r,
                 ),
                 8.horizontalSpace,
                 Expanded(
@@ -111,8 +112,8 @@ class CarWashStationsWidget extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: ConfirmOrGoBackk(
                     text: 'Book'.tr(),
-                    width: 60,
-                    height: 33,
+                    width: 60.r,
+                    height: 33.r,
                   ),
                 ),
               ],

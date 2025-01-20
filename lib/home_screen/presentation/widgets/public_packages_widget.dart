@@ -17,13 +17,13 @@ class PublicPackagesWidget extends StatelessWidget {
       color: Colors.white,
       child: Container(
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(4),
+            borderRadius: BorderRadius.circular(4.r),
             border: Border.all(color: Colors.black12)),
         padding: const EdgeInsets.only(
           top: 12,
           bottom: 12,
           right: 12,
-        ),
+        ).r,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,8 +40,8 @@ class PublicPackagesWidget extends StatelessWidget {
             5.verticalSpace,
             ConfirmOrGoBackk(
               text: 'Buy'.tr(),
-              width: 135,
-              height: 36,
+              width: 135.r,
+              height: 36.r,
             )
           ],
         ),

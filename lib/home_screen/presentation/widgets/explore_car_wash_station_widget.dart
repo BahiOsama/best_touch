@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:second_project/helper/app_colors.dart';
 import 'package:second_project/helper/get_it.dart';
@@ -42,7 +43,7 @@ class ExploreCarWashStationWidget extends StatelessWidget {
               child: LoadingAnimationWidget.flickr(
                 leftDotColor: AppColors.secondColor,
                 rightDotColor: AppColors.whiteColor,
-                size: 50,
+                size: 50.r,
               ),
             );
           } else {
