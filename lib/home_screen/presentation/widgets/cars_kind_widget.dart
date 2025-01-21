@@ -47,11 +47,13 @@ class CarsKindWidget extends StatelessWidget {
                       getServices: state.getServices,
                     );
                   } else if (state is GetCarServicesLoading) {
-                    return Center(
-                      child: LoadingAnimationWidget.flickr(
-                        leftDotColor: AppColors.secondColor,
-                        rightDotColor: AppColors.whiteColor,
-                        size: 50,
+                    return Scaffold(
+                      body: Center(
+                        child: LoadingAnimationWidget.flickr(
+                          leftDotColor: AppColors.secondColor,
+                          rightDotColor: AppColors.whiteColor,
+                          size: 50,
+                        ),
                       ),
                     );
                   } else {

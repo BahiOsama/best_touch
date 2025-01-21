@@ -83,6 +83,7 @@ class AuthRepoImpl extends Authrepo {
           'phone': phone,
         },
       );
+
       return right(unit);
     } catch (e) {
       if (e is DioException) {
@@ -103,6 +104,7 @@ class AuthRepoImpl extends Authrepo {
           'code': code,
         },
       );
+
       return right(CheckCodeModel.fromJson(data['data']));
     } catch (e) {
       if (e is DioException) {
@@ -160,12 +162,16 @@ class AuthRepoImpl extends Authrepo {
   Future<Either<Faileur, Unit>> veifiTheAcc(
       {required String phone, required String code}) async {
     try {
-      await apiServices.post(
+      final data = await apiServices.post(
         endPoint: '/api/verification/verify',
         body: {
           'phone': phone,
           'code': code,
         },
+      );
+      await CashedSharedPrefrances.insertToCash(
+        key: 'token',
+        value: data['data']['token'],
       );
       return right(unit);
     } catch (e) {

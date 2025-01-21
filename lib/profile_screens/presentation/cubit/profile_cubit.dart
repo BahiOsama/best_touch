@@ -23,7 +23,7 @@ class ProfileCubit extends Cubit<ProfileState> {
     );
   }
 
-  void getProfileData() async {
+  Future<void> getProfileData() async {
     emit(GetProfileDataLoading());
     final result = await profilerepo.getProfileDetails();
     result.fold(

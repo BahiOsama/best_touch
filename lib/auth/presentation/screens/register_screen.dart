@@ -22,19 +22,30 @@ class RegisterScreen extends StatefulWidget {
   State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-final TextEditingController nameEditingController = TextEditingController();
-final TextEditingController passwordEditingController = TextEditingController();
-final TextEditingController repasswordEditingController =
-    TextEditingController();
-final TextEditingController phoneEditingController = TextEditingController();
-final TextEditingController positionEditingController = TextEditingController();
-
-var formKey = GlobalKey<FormState>();
-AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-double? latitude;
-double? longitude;
-
 class _RegisterScreenState extends State<RegisterScreen> {
+  final TextEditingController nameEditingController = TextEditingController();
+  final TextEditingController passwordEditingController =
+      TextEditingController();
+  final TextEditingController repasswordEditingController =
+      TextEditingController();
+  final TextEditingController phoneEditingController = TextEditingController();
+  final TextEditingController positionEditingController =
+      TextEditingController();
+
+  var formKey = GlobalKey<FormState>();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  double? latitude;
+  double? longitude;
+  @override
+  void dispose() {
+    nameEditingController.dispose();
+    passwordEditingController.dispose();
+    repasswordEditingController.dispose();
+    phoneEditingController.dispose();
+    positionEditingController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(

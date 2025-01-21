@@ -207,7 +207,7 @@ class _ShowModalBottomSheetWidgetState
                           return Center(
                             child: LoadingAnimationWidget.waveDots(
                               color: AppColors.secondColor,
-                              size: 50.r,
+                              size: 116.r,
                             ),
                           );
                         } else {

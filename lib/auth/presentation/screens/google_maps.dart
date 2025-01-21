@@ -33,6 +33,7 @@ class _GoogleMapsScreenState extends State<GoogleMapsScreen> {
   String? sessionToken;
   String? placeDetails;
   String currentAddress = '';
+  LatLng? centerMarkerPosition;
 
   Set<Marker> myMarkers = {};
   @override
@@ -140,13 +141,13 @@ class _GoogleMapsScreenState extends State<GoogleMapsScreen> {
               },
               onCameraMove: (position) {
                 setState(() {
-                  myMarkers = {
+                  myMarkers.add(
                     Marker(
                       markerId: const MarkerId('centerMarker'),
                       position: position.target,
                       icon: BitmapDescriptor.defaultMarker,
                     ),
-                  };
+                  );
                 });
               },
               onCameraIdle: () async {
@@ -181,13 +182,14 @@ class _GoogleMapsScreenState extends State<GoogleMapsScreen> {
 
                   setState(() {
                     currentAddress = address;
-                    myMarkers = {
+                    centerMarkerPosition = center;
+                    myMarkers.add(
                       Marker(
                         markerId: const MarkerId('centerMarker'),
                         position: center,
                         icon: BitmapDescriptor.defaultMarker,
                       ),
-                    };
+                    );
                   });
                 } catch (e) {
                   setState(() {
@@ -236,10 +238,45 @@ class _GoogleMapsScreenState extends State<GoogleMapsScreen> {
                         );
                       },
                     ),
-                  )
+                  ),
                 ],
               ),
-            )
+            ),
+            Positioned(
+              right: 18,
+              top: 90,
+              child: Container(
+                width: 44,
+                height: 44,
+                decoration: BoxDecoration(
+                    color: AppColors.whiteColor,
+                    borderRadius: BorderRadius.circular(12)),
+                child: Center(
+                  child: TextButton(
+                    style: const ButtonStyle(
+                        foregroundColor:
+                            WidgetStatePropertyAll(AppColors.secondColor)),
+                    onPressed: () {
+                      Marker? userLocationMarker = myMarkers.firstWhere(
+                        (marker) => marker.markerId.value == '1',
+                      );
+
+                      googleMapController.animateCamera(
+                        CameraUpdate.newCameraPosition(
+                          CameraPosition(
+                            target: userLocationMarker.position,
+                            zoom: 10,
+                          ),
+                        ),
+                      );
+                    },
+                    child: const Icon(
+                      Icons.add_location_alt_sharp,
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -323,12 +360,3 @@ class _GoogleMapsScreenState extends State<GoogleMapsScreen> {
     }
   }
 }
-
-/////////////
-
-//     placeDetails =
-//         await googleMapsPlacesServices.getPlaceDetailsFromLatLng(
-//       lat: center.latitude,
-//       lng: center.longitude,
-//     );
-//   print(placeDetails);

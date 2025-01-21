@@ -11,8 +11,8 @@ import 'package:second_project/profile_screens/domain/repos/profile_repo_impl.da
 import 'package:second_project/profile_screens/presentation/cubit/profile_cubit.dart';
 import 'package:second_project/widgets/confirmOrGoBackWidget.dart';
 
-class SignOutWidget extends StatelessWidget {
-  const SignOutWidget({
+class DeleteAccWidget extends StatelessWidget {
+  const DeleteAccWidget({
     super.key,
   });
 
@@ -35,8 +35,6 @@ class SignOutWidget extends StatelessWidget {
                 );
               },
             );
-          } else {
-            Container();
           }
         },
         builder: (context, state) {

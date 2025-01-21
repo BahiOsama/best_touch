@@ -12,6 +12,7 @@ import 'package:second_project/helper/app_padding.dart';
 import 'package:second_project/helper/app_styles.dart';
 import 'package:second_project/profile_screens/domain/models/get_profile_details.dart';
 import 'package:second_project/profile_screens/presentation/cubit/profile_cubit.dart';
+import 'package:second_project/profile_screens/presentation/widgets/delete_acc_widget.dart';
 import 'package:second_project/widgets/confirmOrGoBackWidget.dart';
 import 'package:second_project/widgets/textField.dart';
 
@@ -234,7 +235,12 @@ class _EditProfileState extends State<EditProfile> {
                 ),
                 30.verticalSpace,
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) => const DeleteAccWidget(),
+                    );
+                  },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

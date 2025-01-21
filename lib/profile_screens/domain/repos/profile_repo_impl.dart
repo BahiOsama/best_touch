@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:second_project/api/api_Services.dart';
 import 'package:second_project/helper/faileur.dart';
+import 'package:second_project/helper/local_data/shared_pref.dart';
 import 'package:second_project/profile_screens/domain/models/get_profile_details.dart';
 import 'package:second_project/profile_screens/domain/repos/profile_repo.dart';
 
@@ -16,6 +17,8 @@ class ProfileRepoImpl extends Profilerepo {
       await apiServices.post(
         endPoint: '/api/logout',
       );
+      CashedSharedPrefrances.deleteData(key: 'token');
+
       return right(unit);
     } catch (e) {
       if (e is DioException) {

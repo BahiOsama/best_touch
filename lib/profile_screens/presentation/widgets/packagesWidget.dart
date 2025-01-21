@@ -28,17 +28,17 @@ class PackagesWidget extends StatelessWidget {
         color: AppColors.whiteColor,
         elevation: .7,
         child: Container(
-          padding: const EdgeInsets.all(12),
+          padding: const EdgeInsets.all(12).r,
           width: double.infinity,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(4),
+            borderRadius: BorderRadius.circular(4.r),
           ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Image.asset(leadingImg),
-              const SizedBox(
-                width: 12,
+              SizedBox(
+                width: 12.r,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

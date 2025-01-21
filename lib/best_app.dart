@@ -8,31 +8,29 @@ import 'package:second_project/helper/get_it.dart';
 import 'package:second_project/profile_screens/domain/repos/profile_repo_impl.dart';
 import 'package:second_project/profile_screens/presentation/cubit/profile_cubit.dart';
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+class BestApp extends StatelessWidget {
+  const BestApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) =>
-          ProfileCubit(getIt.get<ProfileRepoImpl>())..getProfileData(),
+      create: (context) => ProfileCubit(getIt.get<ProfileRepoImpl>()),
       child: ScreenUtilInit(
         designSize: const Size(411, 890),
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (context, child) {
           return MaterialApp(
-              theme: ThemeData(
-                  scaffoldBackgroundColor: AppColors.whiteColor,
-                  appBarTheme:
-                      const AppBarTheme(backgroundColor: AppColors.whiteColor)),
-              debugShowCheckedModeBanner: false,
-              localizationsDelegates: context.localizationDelegates,
-              supportedLocales: context.supportedLocales,
-              locale: context.locale,
-              home: const SplashScreen()
-              // home: const LoginScreen(),
-              );
+            theme: ThemeData(
+                scaffoldBackgroundColor: AppColors.whiteColor,
+                appBarTheme:
+                    const AppBarTheme(backgroundColor: AppColors.whiteColor)),
+            debugShowCheckedModeBanner: false,
+            localizationsDelegates: context.localizationDelegates,
+            supportedLocales: context.supportedLocales,
+            locale: context.locale,
+            home: const SplashScreen(),
+          );
         },
       ),
     );

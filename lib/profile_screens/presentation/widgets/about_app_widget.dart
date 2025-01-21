@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:second_project/helper/app_colors.dart';
 import 'package:second_project/helper/app_images.dart';
 
@@ -24,7 +25,7 @@ class AboutAppWidget extends StatelessWidget {
         child: Container(
           width: double.infinity,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(4),
+            borderRadius: BorderRadius.circular(4.r),
           ),
           child: ListTile(
             title: Text(

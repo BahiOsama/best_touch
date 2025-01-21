@@ -6,7 +6,7 @@ import 'package:second_project/firebase_options.dart';
 import 'package:second_project/helper/bloc_observer.dart';
 import 'package:second_project/helper/get_it.dart';
 import 'package:second_project/helper/local_data/shared_pref.dart';
-import 'package:second_project/home.dart';
+import 'package:second_project/best_app.dart';
 import 'package:second_project/home_screen/data/local_notification_services.dart';
 import 'package:second_project/home_screen/data/push_notification_services.dart';
 
@@ -30,6 +30,6 @@ void main() async {
         ],
         path: 'assets/translation',
         fallbackLocale: const Locale('en'),
-        child: const Home()),
+        child: const BestApp()),
   );
 }

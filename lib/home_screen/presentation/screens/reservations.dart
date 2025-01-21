@@ -25,11 +25,6 @@ class _ReservationsState extends State<Reservations> {
         title: Text("Bookings".tr()),
         leading: Padding(
           padding: AppPadding.appbarpadding,
-          child: InkWell(
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ),
         ),
       ),
       body: Padding(
@@ -78,6 +73,7 @@ class _ReservationsState extends State<Reservations> {
                 height: 600,
                 child: isCurrentSelected
                     ? ListView.separated(
+                        physics: const BouncingScrollPhysics(),
                         separatorBuilder: (context, index) => SizedBox(
                           height: 8.r,
                         ),
@@ -131,6 +127,7 @@ class _ReservationsState extends State<Reservations> {
                         ),
                       )
                     : ListView.separated(
+                        physics: const BouncingScrollPhysics(),
                         separatorBuilder: (context, index) => SizedBox(
                           height: 8.r,
                         ),

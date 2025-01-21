@@ -4,6 +4,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pinput/pinput.dart';
 import 'package:second_project/auth/domain/repos/auth_repo_impl.dart';
 import 'package:second_project/auth/presentation/cubit/cubit/auth_cubit.dart';
@@ -14,6 +15,7 @@ import 'package:second_project/helper/app_styles.dart';
 import 'package:second_project/helper/get_it.dart';
 import 'package:second_project/helper/page_route_fadeTransition.dart';
 import 'package:second_project/home_screen/presentation/screens/home_screen.dart';
+import 'package:second_project/profile_screens/presentation/cubit/profile_cubit.dart';
 import 'package:second_project/widgets/confirmOrGoBackWidget.dart';
 
 class VerifiTheAcc extends StatefulWidget {
@@ -56,6 +58,12 @@ class _ForgetPassOTPState extends State<VerifiTheAcc> {
       child: BlocConsumer<AuthCubit, AuthState>(
         listener: (context, state) {
           if (state is SendVerificationCodeSuccess) {
+            BlocProvider.of<ProfileCubit>(context).getProfileData();
+            Fluttertoast.showToast(
+              msg: 'Register Successfully',
+              fontSize: 16,
+              textColor: AppColors.secondColor,
+            );
             Navigator.push(
               context,
               AnimationRoute(

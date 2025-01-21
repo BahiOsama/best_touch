@@ -48,10 +48,10 @@ class ProfileWidget extends StatelessWidget {
               color: AppColors.whiteColor,
               elevation: 2,
               child: Container(
-                padding: const EdgeInsets.symmetric(vertical: 12),
+                padding: const EdgeInsets.symmetric(vertical: 12).r,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(4),
+                  borderRadius: BorderRadius.circular(4).r,
                 ),
                 child: ListTile(
                   title: Text(state.getProfileDetails.name ?? ''),
@@ -67,10 +67,10 @@ class ProfileWidget extends StatelessWidget {
                     ],
                   ),
                   leading: Container(
-                    width: 44,
-                    height: 44,
+                    width: 44.r,
+                    height: 44.r,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(24),
+                      borderRadius: BorderRadius.circular(24).r,
                       image: DecorationImage(
                         image: NetworkImage(
                           state.getProfileDetails.avatar!,
@@ -80,8 +80,8 @@ class ProfileWidget extends StatelessWidget {
                   ),
                   trailing: ConfirmOrGoBackk(
                     text: 'Edit'.tr(),
-                    width: 75,
-                    height: 30,
+                    width: 75.r,
+                    height: 30.r,
                   ),
                 ),
               ),

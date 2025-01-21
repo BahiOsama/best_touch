@@ -4,6 +4,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:second_project/helper/app_colors.dart';
 import 'package:second_project/helper/app_padding.dart';
 import 'package:second_project/helper/app_styles.dart';
@@ -134,8 +135,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   );
                 } else if (state is GetBannersLoading) {
-                  return const Center(
-                    child: CircularProgressIndicator(),
+                  return Center(
+                    child: LoadingAnimationWidget.flickr(
+                      leftDotColor: AppColors.secondColor,
+                      rightDotColor: AppColors.whiteColor,
+                      size: 50.r,
+                    ),
                   );
                 } else {
                   return const Text('Faileur');

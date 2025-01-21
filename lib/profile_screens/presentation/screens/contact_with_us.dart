@@ -40,6 +40,7 @@ class ContactWithUs extends StatelessWidget {
             ),
             3.verticalSpace,
             TextFieldWidget(
+              obsecureText: false,
               prefixIcon: Image.asset(
                 AppImages.profile,
               ),
@@ -80,6 +81,7 @@ class ContactWithUs extends StatelessWidget {
             ),
             3.verticalSpace,
             TextFieldWidget(
+              obsecureText: false,
               prefixIcon: Image.asset(
                 AppImages.gmail,
                 color: Colors.black26,

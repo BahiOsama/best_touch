@@ -5,6 +5,8 @@ import 'package:second_project/helper/app_colors.dart';
 import 'package:second_project/helper/app_images.dart';
 import 'package:second_project/helper/app_padding.dart';
 import 'package:second_project/helper/app_styles.dart';
+import 'package:second_project/helper/page_route_fadeTransition.dart';
+import 'package:second_project/home_screen/presentation/screens/bottom_nav_bar_screen.dart';
 
 class LocaliziationScreenForProfile extends StatefulWidget {
   const LocaliziationScreenForProfile({super.key});
@@ -40,6 +42,8 @@ class _LocaliziationScreenForProfileState
           InkWell(
             onTap: () {
               context.setLocale(const Locale('ar'));
+              Navigator.of(context).pushReplacement(
+                  AnimationRoute(page: const BottomNavBarScreen()));
             },
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 20).r,
@@ -72,6 +76,8 @@ class _LocaliziationScreenForProfileState
           InkWell(
             onTap: () {
               context.setLocale(const Locale('en'));
+              Navigator.of(context).pushReplacement(
+                  AnimationRoute(page: const BottomNavBarScreen()));
             },
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 20).r,

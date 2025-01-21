@@ -14,6 +14,7 @@ import 'package:second_project/helper/app_styles.dart';
 import 'package:second_project/helper/get_it.dart';
 import 'package:second_project/helper/page_route_fadeTransition.dart';
 import 'package:second_project/home_screen/presentation/screens/home_screen.dart';
+import 'package:second_project/profile_screens/presentation/cubit/profile_cubit.dart';
 import 'package:second_project/widgets/confirmOrGoBackWidget.dart';
 import 'package:second_project/widgets/textField.dart';
 
@@ -30,6 +31,12 @@ class _LoginScreenState extends State<LoginScreen> {
       TextEditingController();
   var formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  @override
+  void dispose() {
+    phoneEditingController.dispose();
+    passwordEditingController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
       child: BlocConsumer<AuthCubit, AuthState>(
         listener: (context, state) {
           if (state is AuthLoginSuccess) {
+            BlocProvider.of<ProfileCubit>(context).getProfileData();
             Navigator.pushReplacement(
               context,
               AnimationRoute(
