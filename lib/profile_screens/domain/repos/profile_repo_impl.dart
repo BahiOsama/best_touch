@@ -77,4 +77,22 @@ class ProfileRepoImpl extends Profilerepo {
       return left(ServerFaileur(err: e.toString()));
     }
   }
+
+  @override
+  Future<Either<Faileur, Unit>> deleteAcc({required String password}) async {
+    try {
+      await apiServices.post(
+        body: {"password": password},
+        endPoint: '/api/user/delete',
+      );
+      CashedSharedPrefrances.deleteData(key: 'token');
+
+      return right(unit);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFaileur.fromDioError(e));
+      }
+      return left(ServerFaileur(err: e.toString()));
+    }
+  }
 }

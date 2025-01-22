@@ -23,6 +23,20 @@ class ProfileCubit extends Cubit<ProfileState> {
     );
   }
 
+  Future<void> deleteAcc({required String password}) async {
+    emit(DeleteAccLoading());
+    final result = await profilerepo.deleteAcc(password: password);
+    result.fold(
+      (faileur) {
+        emit(DeleteAccFaileur(err: faileur.err.toString()));
+      },
+      (success) {
+        CashedSharedPrefrances.deleteData(key: 'token');
+        emit(DeleteAccsuccess());
+      },
+    );
+  }
+
   Future<void> getProfileData() async {
     emit(GetProfileDataLoading());
     final result = await profilerepo.getProfileDetails();

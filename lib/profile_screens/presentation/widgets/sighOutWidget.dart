@@ -23,15 +23,20 @@ class SignOutWidget extends StatelessWidget {
       child: BlocConsumer<ProfileCubit, ProfileState>(
         listener: (context, state) {
           if (state is LogOutsuccess) {
-            Navigator.of(context)
-                .pushReplacement(AnimationRoute(page: const LoginScreen()));
+            Navigator.of(context).pushReplacement(
+              AnimationRoute(
+                page: const LoginScreen(),
+              ),
+            );
           }
           if (state is LogOutFaileur) {
             showDialog(
               context: context,
               builder: (context) {
                 return AlertDialog(
-                  content: Text(state.err.toString()),
+                  content: Text(
+                    state.err.toString(),
+                  ),
                 );
               },
             );

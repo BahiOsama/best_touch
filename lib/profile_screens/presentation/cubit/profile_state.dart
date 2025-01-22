@@ -38,3 +38,13 @@ final class EditProfileAndChangePasswordFaileur extends ProfileState {
 
   EditProfileAndChangePasswordFaileur({required this.err});
 }
+
+final class DeleteAccsuccess extends ProfileState {}
+
+final class DeleteAccFaileur extends ProfileState {
+  final String err;
+
+  DeleteAccFaileur({required this.err});
+}
+
+final class DeleteAccLoading extends ProfileState {}

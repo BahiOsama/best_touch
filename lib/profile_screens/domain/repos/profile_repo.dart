@@ -12,4 +12,5 @@ abstract class Profilerepo {
       String? password,
       String? passwordConfirmation,
       String? email});
+  Future<Either<Faileur, Unit>> deleteAcc({required String password});
 }
