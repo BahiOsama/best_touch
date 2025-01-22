@@ -65,200 +65,207 @@ class _LoginScreenState extends State<LoginScreen> {
           }
         },
         builder: (context, state) {
-          return Scaffold(
-            body: Form(
-              autovalidateMode: autovalidateMode,
-              key: formKey,
-              child: SafeArea(
-                child: Padding(
-                  padding: AppPadding.homepadding,
-                  child: ListView(
-                    children: [
-                      InkWell(
-                        onTap: () {},
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              "Continue as Guest".tr(),
-                              style: AppStyles.medium14
-                                  .copyWith(color: AppColors.transperantBlack),
-                            ),
-                            SizedBox(
-                              width: 6.r,
-                            ),
-                            Image.asset(AppImages.leftArrow),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 50.r,
-                      ),
-                      Text(
-                        "Login".tr(),
-                        style: AppStyles.semiBold24,
-                      ),
-                      Text(
-                        "Please enter phone number and password".tr(),
-                        style: AppStyles.regular16,
-                      ),
-                      SizedBox(
-                        height: 24.r,
-                      ),
-                      Text(
-                        "Phone number".tr(),
-                        style: AppStyles.regular14,
-                      ),
-                      SizedBox(
-                        height: 6.r,
-                      ),
-                      TextFieldWidget(
-                        keyboardType: TextInputType.number,
-                        textEditingController: phoneEditingController,
-                        validator: (value) {
-                          if (value!.isEmpty || value.length < 5) {
-                            return 'Please Enter Valid ';
-                          } else {
-                            return null;
-                          }
-                        },
-                        obsecureText: false,
-                        prefixIcon: Padding(
-                          padding: const EdgeInsets.only(right: 16, left: 12).r,
+          return GestureDetector(
+            onTap: () {
+              FocusScope.of(context).unfocus();
+            },
+            child: Scaffold(
+              body: Form(
+                autovalidateMode: autovalidateMode,
+                key: formKey,
+                child: SafeArea(
+                  child: Padding(
+                    padding: AppPadding.homepadding,
+                    child: ListView(
+                      children: [
+                        InkWell(
+                          onTap: () {},
                           child: Row(
-                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              Image.asset(
-                                AppImages.saudiFlag,
+                              Text(
+                                "Continue as Guest".tr(),
+                                style: AppStyles.medium14.copyWith(
+                                    color: AppColors.transperantBlack),
                               ),
                               SizedBox(
-                                width: 8.r,
+                                width: 6.r,
                               ),
-                              const Text(
-                                '+966',
-                              )
+                              Image.asset(AppImages.leftArrow),
                             ],
                           ),
                         ),
-                        hintText: "Enter phone number".tr(),
-                      ),
-                      SizedBox(
-                        height: 6.r,
-                      ),
-                      // Text(
-                      //   "Invalid phone number".tr(),
-                      //   style:
-                      //       AppStyles.regular12.copyWith(color: AppColors.redColor),
-                      // ),
-                      SizedBox(
-                        height: 14.r,
-                      ),
-                      Text(
-                        "Password".tr(),
-                        style: AppStyles.regular14,
-                      ),
-                      SizedBox(
-                        height: 6.r,
-                      ),
-                      TextFieldWidget(
-                        textEditingController: passwordEditingController,
-                        validator: (value) {
-                          if (value!.isEmpty || value.length < 6) {
-                            return 'Please Enter Valid ';
-                          } else {
-                            return null;
-                          }
-                        },
-                        visibleIcon: true,
-                        hintText: "Enter password".tr(),
-                        suffixIcon: const Icon(
-                          Icons.visibility_off,
-                          color: Colors.black26,
+                        SizedBox(
+                          height: 50.r,
                         ),
-                        prefixIcon: Image.asset(
-                          AppImages.unlock,
+                        Text(
+                          "Login".tr(),
+                          style: AppStyles.semiBold24,
                         ),
-                      ),
-                      SizedBox(
-                        height: 12.r,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              Navigator.of(context).push(
-                                  AnimationRoute(page: const ForgotPassword()));
-                            },
-                            child: Text(
-                              "Forgot password?".tr(),
+                        Text(
+                          "Please enter phone number and password".tr(),
+                          style: AppStyles.regular16,
+                        ),
+                        SizedBox(
+                          height: 24.r,
+                        ),
+                        Text(
+                          "Phone number".tr(),
+                          style: AppStyles.regular14,
+                        ),
+                        SizedBox(
+                          height: 6.r,
+                        ),
+                        TextFieldWidget(
+                          keyboardType: TextInputType.number,
+                          textEditingController: phoneEditingController,
+                          validator: (value) {
+                            if (value!.isEmpty || value.length < 5) {
+                              return 'Please Enter Valid ';
+                            } else {
+                              return null;
+                            }
+                          },
+                          obsecureText: false,
+                          prefixIcon: Padding(
+                            padding:
+                                const EdgeInsets.only(right: 16, left: 12).r,
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Image.asset(
+                                  AppImages.saudiFlag,
+                                ),
+                                SizedBox(
+                                  width: 8.r,
+                                ),
+                                const Text(
+                                  '+966',
+                                )
+                              ],
                             ),
                           ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 44.r,
-                      ),
-                      state is AuthLoginLoading
-                          ? const Center(
-                              child: CircularProgressIndicator(),
-                            )
-                          : ConfirmOrGoBackk(
-                              onTap: () async {
-                                if (formKey.currentState!.validate()) {
-                                  String? deviceToken = await FirebaseMessaging
-                                      .instance
-                                      .getToken();
-                                  context.read<AuthCubit>().login(
-                                        deviceToken: deviceToken,
-                                        password:
-                                            passwordEditingController.text,
-                                        phone: phoneEditingController.text,
-                                      );
-                                } else {
-                                  setState(() {
-                                    autovalidateMode = AutovalidateMode.always;
-                                  });
-                                }
+                          hintText: "Enter phone number".tr(),
+                        ),
+                        SizedBox(
+                          height: 6.r,
+                        ),
+                        // Text(
+                        //   "Invalid phone number".tr(),
+                        //   style:
+                        //       AppStyles.regular12.copyWith(color: AppColors.redColor),
+                        // ),
+                        SizedBox(
+                          height: 14.r,
+                        ),
+                        Text(
+                          "Password".tr(),
+                          style: AppStyles.regular14,
+                        ),
+                        SizedBox(
+                          height: 6.r,
+                        ),
+                        TextFieldWidget(
+                          textEditingController: passwordEditingController,
+                          validator: (value) {
+                            if (value!.isEmpty || value.length < 6) {
+                              return 'Please Enter Valid ';
+                            } else {
+                              return null;
+                            }
+                          },
+                          visibleIcon: true,
+                          hintText: "Enter password".tr(),
+                          suffixIcon: const Icon(
+                            Icons.visibility_off,
+                            color: Colors.black26,
+                          ),
+                          prefixIcon: Image.asset(
+                            AppImages.unlock,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 12.r,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                Navigator.of(context).push(AnimationRoute(
+                                    page: const ForgotPassword()));
                               },
-                              text: "Log In".tr(),
+                              child: Text(
+                                "Forgot password?".tr(),
+                              ),
                             ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 44.r,
+                        ),
+                        state is AuthLoginLoading
+                            ? const Center(
+                                child: CircularProgressIndicator(),
+                              )
+                            : ConfirmOrGoBackk(
+                                onTap: () async {
+                                  if (formKey.currentState!.validate()) {
+                                    String? deviceToken =
+                                        await FirebaseMessaging.instance
+                                            .getToken();
+                                    context.read<AuthCubit>().login(
+                                          deviceToken: deviceToken,
+                                          password:
+                                              passwordEditingController.text,
+                                          phone: phoneEditingController.text,
+                                        );
+                                  } else {
+                                    setState(() {
+                                      autovalidateMode =
+                                          AutovalidateMode.always;
+                                    });
+                                  }
+                                },
+                                text: "Log In".tr(),
+                              ),
 
-                      SizedBox(
-                        height: 16.r,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Don't have an account?".tr(),
-                            style: AppStyles.semiBold14,
-                          ),
-                          SizedBox(
-                            width: 3.r,
-                          ),
-                          InkWell(
-                            onTap: () {
-                              Navigator.of(context).push(
-                                  AnimationRoute(page: const RegisterScreen()));
-                            },
-                            child: Text(
-                              "Create new account".tr(),
-                              style: AppStyles.semiBold14
-                                  .copyWith(color: AppColors.secondColor),
+                        SizedBox(
+                          height: 16.r,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Don't have an account?".tr(),
+                              style: AppStyles.semiBold14,
                             ),
-                          )
-                        ],
-                      ),
-                    ],
+                            SizedBox(
+                              width: 3.r,
+                            ),
+                            InkWell(
+                              onTap: () {
+                                Navigator.of(context).push(AnimationRoute(
+                                    page: const RegisterScreen()));
+                              },
+                              child: Text(
+                                "Create new account".tr(),
+                                style: AppStyles.semiBold14
+                                    .copyWith(color: AppColors.secondColor),
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-            bottomNavigationBar: Image.asset(
-              AppImages.wave,
-              width: double.infinity,
-              fit: BoxFit.fill,
+              bottomNavigationBar: Image.asset(
+                AppImages.wave,
+                width: double.infinity,
+                fit: BoxFit.fill,
+              ),
             ),
           );
         },

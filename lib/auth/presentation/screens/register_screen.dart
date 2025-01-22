@@ -74,253 +74,262 @@ class _RegisterScreenState extends State<RegisterScreen> {
           }
         },
         builder: (context, state) {
-          return Scaffold(
-            body: Form(
-              autovalidateMode: autovalidateMode,
-              key: formKey,
-              child: SafeArea(
-                child: Padding(
-                  padding: AppPadding.homepadding,
-                  child: ListView(
-                    children: [
-                      InkWell(
-                        onTap: () {},
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              "Continue as Guest".tr(),
-                              style: AppStyles.medium14
-                                  .copyWith(color: AppColors.transperantBlack),
-                            ),
-                            SizedBox(
-                              width: 6.r,
-                            ),
-                            Image.asset(AppImages.leftArrow),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 40.r,
-                      ),
-                      Text(
-                        "Create new account".tr(),
-                        style: AppStyles.semiBold24,
-                      ),
-                      Text(
-                        "Please fill in the required fields".tr(),
-                        style: AppStyles.medium16,
-                      ),
-                      SizedBox(
-                        height: 24.r,
-                      ),
-                      Text(
-                        "Username".tr(),
-                        style: AppStyles.regular12,
-                      ),
-                      SizedBox(height: 6.r),
-                      TextFieldWidget(
-                        textEditingController: nameEditingController,
-                        validator: (value) {
-                          if (value!.isEmpty || value.length < 4) {
-                            return 'Please Enter Valid Name';
-                          } else {
-                            return null;
-                          }
-                        },
-                        obsecureText: false,
-                        hintText: "Username".tr(),
-                      ),
-                      SizedBox(
-                        height: 16.r,
-                      ),
-                      Text(
-                        "Phone number".tr(),
-                        style: AppStyles.regular12,
-                      ),
-                      SizedBox(height: 6.r),
-                      TextFieldWidget(
-                        textEditingController: phoneEditingController,
-                        validator: (value) {
-                          if (value!.isEmpty || value.length < 5) {
-                            return 'Please Enter Valid Phone';
-                          } else {
-                            return null;
-                          }
-                        },
-                        obsecureText: false,
-                        prefixIcon: Padding(
-                          padding: const EdgeInsets.only(right: 16, left: 12).r,
+          return GestureDetector(
+            onTap: () {
+              FocusScope.of(context).unfocus();
+            },
+            child: Scaffold(
+              body: Form(
+                autovalidateMode: autovalidateMode,
+                key: formKey,
+                child: SafeArea(
+                  child: Padding(
+                    padding: AppPadding.homepadding,
+                    child: ListView(
+                      children: [
+                        InkWell(
+                          onTap: () {},
                           child: Row(
-                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              Image.asset(
-                                AppImages.saudiFlag,
+                              Text(
+                                "Continue as Guest".tr(),
+                                style: AppStyles.medium14.copyWith(
+                                    color: AppColors.transperantBlack),
                               ),
                               SizedBox(
-                                width: 8.r,
+                                width: 6.r,
                               ),
-                              const Text(
-                                '+966',
-                              )
+                              Image.asset(AppImages.leftArrow),
                             ],
                           ),
                         ),
-                        hintText: "Enter phone number".tr(),
-                      ),
-                      SizedBox(
-                        height: 16.r,
-                      ),
-                      Text(
-                        "Password".tr(),
-                        style: AppStyles.regular12,
-                      ),
-                      SizedBox(height: 6.r),
-                      TextFieldWidget(
-                        textEditingController: passwordEditingController,
-                        keyboardType: TextInputType.number,
-                        validator: (value) {
-                          if (value!.isEmpty || value.length < 6) {
-                            return 'Please Enter Valid Password';
-                          } else {
-                            return null;
-                          }
-                        },
-                        visibleIcon: true,
-                        hintText: "Enter password".tr(),
-                        suffixIcon: const Icon(
-                          Icons.visibility_off,
-                          color: Colors.black26,
+                        SizedBox(
+                          height: 40.r,
                         ),
-                      ),
-                      SizedBox(
-                        height: 16.r,
-                      ),
-                      Text(
-                        "Confirm password".tr(),
-                        style: AppStyles.regular12,
-                      ),
-                      SizedBox(height: 6.r),
-                      TextFieldWidget(
-                        textEditingController: repasswordEditingController,
-                        validator: (value) {
-                          if (value!.isEmpty || value.length < 6) {
-                            return 'Please Enter Valid Password';
-                          } else {
-                            return null;
-                          }
-                        },
-                        visibleIcon: true,
-                        hintText: "Enter password".tr(),
-                        suffixIcon: const Icon(
-                          Icons.visibility_off,
-                          color: Colors.black26,
+                        Text(
+                          "Create new account".tr(),
+                          style: AppStyles.semiBold24,
                         ),
-                      ),
-                      SizedBox(
-                        height: 16.r,
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            "Location".tr(),
-                            style: AppStyles.regular12,
-                          ),
-                          SizedBox(
-                            width: 4.r,
-                          ),
-                          Text(
-                            "Optional".tr(),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 6.r),
-                      InkWell(
-                        onTap: () async {
-                          final locationData = await Navigator.of(context).push(
-                            AnimationRoute(
-                              page: BlocProvider(
-                                create: (context) =>
-                                    AuthCubit(getIt.get<AuthRepoImpl>()),
-                                child: const GoogleMapsScreen(),
-                              ),
-                            ),
-                          );
-
-                          if (locationData != null) {
-                            setState(() {
-                              positionEditingController.text =
-                                  locationData['address'].toString();
-
-                              latitude = locationData['latitude'];
-                              longitude = locationData['longitude'];
-                            });
-                          }
-                        },
-                        child: TextFieldWidget(
-                          textEditingController: positionEditingController,
-                          enabled: false,
+                        Text(
+                          "Please fill in the required fields".tr(),
+                          style: AppStyles.medium16,
+                        ),
+                        SizedBox(
+                          height: 24.r,
+                        ),
+                        Text(
+                          "Username".tr(),
+                          style: AppStyles.regular12,
+                        ),
+                        SizedBox(height: 6.r),
+                        TextFieldWidget(
+                          textEditingController: nameEditingController,
+                          validator: (value) {
+                            if (value!.isEmpty || value.length < 4) {
+                              return 'Please Enter Valid Name';
+                            } else {
+                              return null;
+                            }
+                          },
                           obsecureText: false,
-                          hintText: "SetLocation".tr(),
+                          hintText: "Username".tr(),
                         ),
-                      ),
-                      SizedBox(
-                        height: 32.r,
-                      ),
-                      ConfirmOrGoBackk(
-                        text: "Register Now".tr(),
-                        onTap: () {
-                          if (formKey.currentState!.validate()) {
-                            context.read<AuthCubit>().register(
-                                  location: positionEditingController.text,
-                                  lat: latitude.toString(),
-                                  long: longitude.toString(),
-                                  name: nameEditingController.text,
-                                  password: passwordEditingController.text,
-                                  rePassword: repasswordEditingController.text,
-                                  phone: phoneEditingController.text,
-                                );
-                          } else {
-                            setState(() {
-                              autovalidateMode = AutovalidateMode.always;
-                            });
-                          }
-                        },
-                      ),
-                      SizedBox(
-                        height: 16.r,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Already have an account?".tr(),
-                            style: AppStyles.semiBold14,
-                          ),
-                          SizedBox(
-                            width: 3.r,
-                          ),
-                          InkWell(
-                            onTap: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: Text(
-                              "Log In".tr(),
-                              style: AppStyles.semiBold14
-                                  .copyWith(color: AppColors.secondColor),
+                        SizedBox(
+                          height: 16.r,
+                        ),
+                        Text(
+                          "Phone number".tr(),
+                          style: AppStyles.regular12,
+                        ),
+                        SizedBox(height: 6.r),
+                        TextFieldWidget(
+                          keyboardType: TextInputType.number,
+                          textEditingController: phoneEditingController,
+                          validator: (value) {
+                            if (value!.isEmpty || value.length < 5) {
+                              return 'Please Enter Valid Phone';
+                            } else {
+                              return null;
+                            }
+                          },
+                          obsecureText: false,
+                          prefixIcon: Padding(
+                            padding:
+                                const EdgeInsets.only(right: 16, left: 12).r,
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Image.asset(
+                                  AppImages.saudiFlag,
+                                ),
+                                SizedBox(
+                                  width: 8.r,
+                                ),
+                                const Text(
+                                  '+966',
+                                )
+                              ],
                             ),
-                          )
-                        ],
-                      ),
-                    ],
+                          ),
+                          hintText: "Enter phone number".tr(),
+                        ),
+                        SizedBox(
+                          height: 16.r,
+                        ),
+                        Text(
+                          "Password".tr(),
+                          style: AppStyles.regular12,
+                        ),
+                        SizedBox(height: 6.r),
+                        TextFieldWidget(
+                          textEditingController: passwordEditingController,
+                          keyboardType: TextInputType.number,
+                          validator: (value) {
+                            if (value!.isEmpty || value.length < 6) {
+                              return 'Please Enter Valid Password';
+                            } else {
+                              return null;
+                            }
+                          },
+                          visibleIcon: true,
+                          hintText: "Enter password".tr(),
+                          suffixIcon: const Icon(
+                            Icons.visibility_off,
+                            color: Colors.black26,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 16.r,
+                        ),
+                        Text(
+                          "Confirm password".tr(),
+                          style: AppStyles.regular12,
+                        ),
+                        SizedBox(height: 6.r),
+                        TextFieldWidget(
+                          textEditingController: repasswordEditingController,
+                          validator: (value) {
+                            if (value!.isEmpty || value.length < 6) {
+                              return 'Please Enter Valid Password';
+                            } else {
+                              return null;
+                            }
+                          },
+                          visibleIcon: true,
+                          hintText: "Enter password".tr(),
+                          suffixIcon: const Icon(
+                            Icons.visibility_off,
+                            color: Colors.black26,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 16.r,
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              "Location".tr(),
+                              style: AppStyles.regular12,
+                            ),
+                            SizedBox(
+                              width: 4.r,
+                            ),
+                            Text(
+                              "Optional".tr(),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 6.r),
+                        InkWell(
+                          onTap: () async {
+                            final locationData =
+                                await Navigator.of(context).push(
+                              AnimationRoute(
+                                page: BlocProvider(
+                                  create: (context) =>
+                                      AuthCubit(getIt.get<AuthRepoImpl>()),
+                                  child: const GoogleMapsScreen(),
+                                ),
+                              ),
+                            );
+
+                            if (locationData != null) {
+                              setState(() {
+                                positionEditingController.text =
+                                    locationData['address'].toString();
+
+                                latitude = locationData['latitude'];
+                                longitude = locationData['longitude'];
+                              });
+                            }
+                          },
+                          child: TextFieldWidget(
+                            textEditingController: positionEditingController,
+                            enabled: false,
+                            obsecureText: false,
+                            hintText: "SetLocation".tr(),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 32.r,
+                        ),
+                        ConfirmOrGoBackk(
+                          text: "Register Now".tr(),
+                          onTap: () {
+                            if (formKey.currentState!.validate()) {
+                              context.read<AuthCubit>().register(
+                                    location: positionEditingController.text,
+                                    lat: latitude.toString(),
+                                    long: longitude.toString(),
+                                    name: nameEditingController.text,
+                                    password: passwordEditingController.text,
+                                    rePassword:
+                                        repasswordEditingController.text,
+                                    phone: phoneEditingController.text,
+                                  );
+                            } else {
+                              setState(() {
+                                autovalidateMode = AutovalidateMode.always;
+                              });
+                            }
+                          },
+                        ),
+                        SizedBox(
+                          height: 16.r,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Already have an account?".tr(),
+                              style: AppStyles.semiBold14,
+                            ),
+                            SizedBox(
+                              width: 3.r,
+                            ),
+                            InkWell(
+                              onTap: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Text(
+                                "Log In".tr(),
+                                style: AppStyles.semiBold14
+                                    .copyWith(color: AppColors.secondColor),
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-            bottomNavigationBar: Image.asset(
-              AppImages.wave,
-              width: double.infinity,
-              fit: BoxFit.fill,
+              bottomNavigationBar: Image.asset(
+                AppImages.wave,
+                width: double.infinity,
+                fit: BoxFit.fill,
+              ),
             ),
           );
         },

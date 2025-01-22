@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:pinput/pinput.dart';
 import 'package:second_project/auth/domain/repos/auth_repo_impl.dart';
 import 'package:second_project/auth/presentation/cubit/cubit/auth_cubit.dart';
@@ -28,7 +29,7 @@ class VerifiTheAcc extends StatefulWidget {
 
 class _ForgetPassOTPState extends State<VerifiTheAcc> {
   final TextEditingController codeController = TextEditingController();
-  int resendTimer = 5;
+  int resendTimer = 20;
   late Timer countDownTimer;
 
   @override
@@ -142,20 +143,34 @@ class _ForgetPassOTPState extends State<VerifiTheAcc> {
                             ),
                           ),
                         ),
+                        onCompleted: (pin) {
+                          context.read<AuthCubit>().verifiTheAcc(
+                                phone: widget.phone,
+                                code: pin,
+                              );
+                        },
                       ),
                     ),
                     SizedBox(
                       height: 34.r,
                     ),
-                    ConfirmOrGoBackk(
-                      onTap: () {
-                        context.read<AuthCubit>().verifiTheAcc(
-                              phone: widget.phone,
-                              code: codeController.text,
-                            );
-                      },
-                      text: 'التالى',
-                    ),
+                    state is SendVerificationCodeLoading
+                        ? Center(
+                            child: LoadingAnimationWidget.flickr(
+                              leftDotColor: AppColors.secondColor,
+                              rightDotColor: AppColors.whiteColor,
+                              size: 50.r,
+                            ),
+                          )
+                        : ConfirmOrGoBackk(
+                            onTap: () {
+                              context.read<AuthCubit>().verifiTheAcc(
+                                    phone: widget.phone,
+                                    code: codeController.text,
+                                  );
+                            },
+                            text: 'التالى',
+                          ),
                     SizedBox(
                       height: 22.r,
                     ),

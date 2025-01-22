@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:second_project/auth/presentation/screens/login_screen.dart';
 import 'package:second_project/helper/app_colors.dart';
 import 'package:second_project/helper/app_styles.dart';
@@ -45,48 +46,57 @@ class SignOutWidget extends StatelessWidget {
           }
         },
         builder: (context, state) {
-          return AlertDialog(
-            shape: const BeveledRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(4))),
-            content: Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 12, vertical: 33).r,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    "Do you want to log out?".tr(),
-                    style: AppStyles.semiBold24,
+          return state is LogOutLoading
+              ? Center(
+                  child: LoadingAnimationWidget.flickr(
+                    leftDotColor: AppColors.secondColor,
+                    rightDotColor: AppColors.whiteColor,
+                    size: 50.r,
                   ),
-                  25.verticalSpace,
-                  Row(
-                    children: [
-                      ConfirmOrGoBackk(
-                        onTap: () {
-                          context.read<ProfileCubit>().logOut();
-                        },
-                        text: 'Confirm'.tr(),
-                        height: 40.r,
-                        width: 120.r,
-                      ),
-                      12.horizontalSpace,
-                      ConfirmOrGoBackk(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        borderColor: AppColors.secondColor,
-                        backgroundColor: AppColors.whiteColor,
-                        textColor: AppColors.secondColor,
-                        text: 'Cancel'.tr(),
-                        width: 120.r,
-                        height: 40.r,
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            ),
-          );
+                )
+              : AlertDialog(
+                  shape: const BeveledRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(4))),
+                  content: Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 12, vertical: 33)
+                            .r,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          "Do you want to log out?".tr(),
+                          style: AppStyles.semiBold24,
+                        ),
+                        25.verticalSpace,
+                        Row(
+                          children: [
+                            ConfirmOrGoBackk(
+                              onTap: () {
+                                context.read<ProfileCubit>().logOut();
+                              },
+                              text: 'Confirm'.tr(),
+                              height: 40.r,
+                              width: 120.r,
+                            ),
+                            12.horizontalSpace,
+                            ConfirmOrGoBackk(
+                              onTap: () {
+                                Navigator.pop(context);
+                              },
+                              borderColor: AppColors.secondColor,
+                              backgroundColor: AppColors.whiteColor,
+                              textColor: AppColors.secondColor,
+                              text: 'Cancel'.tr(),
+                              width: 120.r,
+                              height: 40.r,
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                );
         },
       ),
     );

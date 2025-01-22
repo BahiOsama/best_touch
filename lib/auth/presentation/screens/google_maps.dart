@@ -34,6 +34,7 @@ class _GoogleMapsScreenState extends State<GoogleMapsScreen> {
   String? placeDetails;
   String currentAddress = '';
   LatLng? centerMarkerPosition;
+  bool isMapReady = false;
 
   Set<Marker> myMarkers = {};
   @override
@@ -109,18 +110,20 @@ class _GoogleMapsScreenState extends State<GoogleMapsScreen> {
               ),
               10.verticalSpace,
               ConfirmOrGoBackk(
-                onTap: () {
-                  if (myMarkers.isNotEmpty) {
-                    final markerPosition = myMarkers.first.position;
-                    Navigator.pop(context, {
-                      'latitude': markerPosition.latitude,
-                      'longitude': markerPosition.longitude,
-                      'address': currentAddress,
-                    });
-                  } else {
-                    Navigator.pop(context, null);
-                  }
-                },
+                onTap: isMapReady
+                    ? () {
+                        if (myMarkers.isNotEmpty) {
+                          final markerPosition = myMarkers.first.position;
+                          Navigator.pop(context, {
+                            'latitude': markerPosition.latitude,
+                            'longitude': markerPosition.longitude,
+                            'address': currentAddress,
+                          });
+                        } else {
+                          Navigator.pop(context, null);
+                        }
+                      }
+                    : null,
                 text: 'Set location'.tr(),
                 height: 45,
               ),
@@ -315,6 +318,7 @@ class _GoogleMapsScreenState extends State<GoogleMapsScreen> {
 
       setState(() {
         currentAddress = address;
+        isMapReady = true;
       });
       googleMapController.animateCamera(
         CameraUpdate.newCameraPosition(camreaPosition),

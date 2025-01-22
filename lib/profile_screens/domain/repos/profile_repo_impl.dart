@@ -82,10 +82,11 @@ class ProfileRepoImpl extends Profilerepo {
   Future<Either<Faileur, Unit>> deleteAcc({required String password}) async {
     try {
       await apiServices.post(
-        body: {"password": password},
+        body: {
+          "password": password,
+        },
         endPoint: '/api/user/delete',
       );
-      CashedSharedPrefrances.deleteData(key: 'token');
 
       return right(unit);
     } catch (e) {
