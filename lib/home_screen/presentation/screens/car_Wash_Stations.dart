@@ -129,11 +129,13 @@ class _CarWashStationsState extends State<CarWashStations> {
               ),
             );
           } else if (state is GetWaherssLoading) {
-            return Center(
-              child: LoadingAnimationWidget.flickr(
-                leftDotColor: AppColors.secondColor,
-                rightDotColor: AppColors.whiteColor,
-                size: 50,
+            return Scaffold(
+              body: Center(
+                child: LoadingAnimationWidget.flickr(
+                  leftDotColor: AppColors.secondColor,
+                  rightDotColor: AppColors.whiteColor,
+                  size: 50,
+                ),
               ),
             );
           } else {

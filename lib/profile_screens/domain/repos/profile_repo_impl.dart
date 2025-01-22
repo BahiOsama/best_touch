@@ -59,13 +59,10 @@ class ProfileRepoImpl extends Profilerepo {
           if (name != null) "name": name,
           if (avatar != null) "avatar": avatar,
           if (email != null) "email": email,
-          if (oldPassword != null &&
-              password != null &&
-              passwordConfirmation != null) ...{
-            "old_password": oldPassword,
-            "password": password,
-            " password_confirmation": passwordConfirmation,
-          },
+          if (oldPassword != null) "old_password": oldPassword,
+          if (password != null) "password": password,
+          if (passwordConfirmation != null)
+            "password_confirmation": passwordConfirmation,
         },
         endPoint: '/api/profile',
       );
