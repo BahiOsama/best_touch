@@ -4,8 +4,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:second_project/helper/app_images.dart';
 
 class ChooseWasherDialog extends StatefulWidget {
+  final ValueChanged<String> onCarWashSelected;
+
   const ChooseWasherDialog({
     super.key,
+    required this.onCarWashSelected,
   });
 
   @override
@@ -16,22 +19,38 @@ class _ChooseWasherDialogState extends State<ChooseWasherDialog> {
   List<String> options = [
     'كلين',
     'كلين أوف',
-    'option3',
-    'option4',
-    'option5',
-    'nnnnnn',
+    'تيست',
+    'بيست تاتش',
+    'المحمدى',
+    'نو كلين',
   ];
   late int currentOption;
   ValueNotifier<String?> nameWaher = ValueNotifier(null);
   @override
   void initState() {
-    currentOption = 0;
+    currentOption = -1;
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      child: Container(
+        width: 220.r,
+        padding: const EdgeInsets.only(top: 7, bottom: 7, right: 12).r,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(6).r,
+          border: Border.all(
+            color: Colors.black26,
+          ),
+        ),
+        child: ValueListenableBuilder(
+          valueListenable: nameWaher,
+          builder: (BuildContext context, String? value, Widget? child) => Text(
+            nameWaher.value ?? 'Choose a Car Wash (Mandatory)'.tr(),
+          ),
+        ),
+      ),
       onTap: () {
         showDialog(
           context: context,
@@ -66,32 +85,47 @@ class _ChooseWasherDialogState extends State<ChooseWasherDialog> {
                     shrinkWrap: true,
                     itemCount: options.length,
                     itemBuilder: (context, index) {
-                      return Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Transform.scale(
-                            scale: 1.3.r,
-                            child: Radio(
-                              value: index,
-                              groupValue: currentOption,
-                              onChanged: (value) {
-                                setState(() {
-                                  currentOption = value!;
-                                  nameWaher.value = options[currentOption];
-                                });
-                              },
-                            ),
+                      return InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                          widget.onCarWashSelected(options[index]);
+                          setState(() {
+                            currentOption = index;
+                            nameWaher.value = options[currentOption];
+                          });
+                        },
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(vertical: 4.r),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Transform.scale(
+                                scale: 1.3.r,
+                                child: Radio(
+                                  value: index,
+                                  groupValue: currentOption,
+                                  onChanged: (value) {
+                                    Navigator.pop(context);
+                                    widget.onCarWashSelected(options[index]);
+                                    setState(() {
+                                      currentOption = value!;
+                                      nameWaher.value = options[currentOption];
+                                    });
+                                  },
+                                ),
+                              ),
+                              Image.asset(
+                                AppImages.smallPhotoForHomeScreennn,
+                              ),
+                              SizedBox(
+                                width: 8.r,
+                              ),
+                              Text(
+                                options[index],
+                              ),
+                            ],
                           ),
-                          Image.asset(
-                            AppImages.smallPhotoForHomeScreennn,
-                          ),
-                          SizedBox(
-                            width: 8.r,
-                          ),
-                          Text(
-                            options[index],
-                          ),
-                        ],
+                        ),
                       );
                     },
                   ),
@@ -101,20 +135,6 @@ class _ChooseWasherDialogState extends State<ChooseWasherDialog> {
           },
         );
       },
-      child: Container(
-        width: 220.r,
-        padding: const EdgeInsets.only(top: 7, bottom: 7, right: 12).r,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(6).r,
-          border: Border.all(
-            color: Colors.black26,
-          ),
-        ),
-        child: ValueListenableBuilder(
-            valueListenable: nameWaher,
-            builder: (BuildContext context, String? value, Widget? child) =>
-                Text(nameWaher.value ?? 'Choose a Car Wash (Mandatory)'.tr())),
-      ),
     );
   }
 }

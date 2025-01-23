@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:lottie/lottie.dart';
 import 'package:second_project/helper/app_colors.dart';
 import 'package:second_project/helper/app_images.dart';
 import 'package:second_project/helper/app_padding.dart';
@@ -40,106 +41,129 @@ class Notifications extends StatelessWidget {
               ),
               body: Padding(
                 padding: AppPadding.homepadding,
-                child: ListView.builder(
-                  itemCount: state.notificationModel.length,
-                  itemBuilder: (context, index) => Column(
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Column(
-                            children: [
-                              Text(
-                                'اليوم'.tr(),
-                                style: AppStyles.semiBold16,
+                child: state.notificationModel.isEmpty
+                    ? Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Lottie.network(
+                              'https://assets7.lottiefiles.com/packages/lf20_t24tpvcu.json',
+                              height: 200.r,
+                            ),
+                            20.verticalSpace,
+                            Text(
+                              'No notifications yet!'.tr(),
+                              style: AppStyles.medium16.copyWith(
+                                color: Colors.blue,
                               ),
-                              5.verticalSpace,
-                              Image.asset(AppImages.smallPhotoForHomeScreenn),
-                            ],
-                          ),
-                          10.horizontalSpace,
-                          Flexible(
-                            child: Column(
+                            ),
+                          ],
+                        ),
+                      )
+                    : ListView.builder(
+                        itemCount: state.notificationModel.length,
+                        itemBuilder: (context, index) => Column(
+                          children: [
+                            Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                SizedBox(
-                                  height: 26.r,
-                                ),
-                                Text(
-                                  state.notificationModel[index].title,
-                                ),
-                                Text(
-                                  state.notificationModel[index].message,
-                                ),
-                                7.verticalSpace,
-                                Row(
+                                Column(
                                   children: [
-                                    Image.asset(
-                                      AppImages.timeCircl,
-                                      color: AppColors.transperantBlack,
-                                    ),
-                                    5.horizontalSpace,
                                     Text(
-                                      state.notificationModel[index]
-                                          .createdAtFormatted,
-                                      style: AppStyles.medium14.copyWith(
-                                        color: AppColors.transperantBlack,
+                                      'اليوم'.tr(),
+                                      style: AppStyles.semiBold16,
+                                    ),
+                                    5.verticalSpace,
+                                    Image.asset(
+                                        AppImages.smallPhotoForHomeScreenn),
+                                  ],
+                                ),
+                                10.horizontalSpace,
+                                Flexible(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      SizedBox(
+                                        height: 26.r,
+                                      ),
+                                      Text(
+                                        state.notificationModel[index].title,
+                                      ),
+                                      Text(
+                                        state.notificationModel[index].message,
+                                      ),
+                                      7.verticalSpace,
+                                      Row(
+                                        children: [
+                                          Image.asset(
+                                            AppImages.timeCircl,
+                                            color: AppColors.transperantBlack,
+                                          ),
+                                          5.horizontalSpace,
+                                          Text(
+                                            state.notificationModel[index]
+                                                .createdAtFormatted,
+                                            style: AppStyles.medium14.copyWith(
+                                              color: AppColors.transperantBlack,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      height: 32.r,
+                                    ),
+                                    TextButton(
+                                      style: ButtonStyle(
+                                        shape: WidgetStatePropertyAll(
+                                          ContinuousRectangleBorder(
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(12.r)),
+                                          ),
+                                        ),
+                                        backgroundColor:
+                                            const WidgetStatePropertyAll(
+                                          AppColors.secondColor,
+                                        ),
+                                      ),
+                                      onPressed: () {},
+                                      child: Text(
+                                        'Pay'.tr(),
+                                        style: AppStyles.medium14.copyWith(
+                                            color: AppColors.whiteColor),
                                       ),
                                     ),
                                   ],
                                 ),
                               ],
                             ),
-                          ),
-                          Column(
-                            children: [
-                              Container(
-                                height: 32.r,
-                              ),
-                              TextButton(
-                                style: ButtonStyle(
-                                  shape: WidgetStatePropertyAll(
-                                    ContinuousRectangleBorder(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(12.r)),
+                            25.verticalSpace,
+                            Row(
+                              children: List.generate(
+                                24,
+                                (index) {
+                                  return Expanded(
+                                    child: Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(horizontal: 4.r),
+                                      child: Container(
+                                        height: 1.r,
+                                        color: AppColors.mainColor,
+                                      ),
                                     ),
-                                  ),
-                                  backgroundColor: const WidgetStatePropertyAll(
-                                    AppColors.secondColor,
-                                  ),
-                                ),
-                                onPressed: () {},
-                                child: Text(
-                                  'Pay'.tr(),
-                                  style: AppStyles.medium14
-                                      .copyWith(color: AppColors.whiteColor),
-                                ),
+                                  );
+                                },
                               ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      25.verticalSpace,
-                      Row(
-                        children: List.generate(
-                          24,
-                          (index) {
-                            return Expanded(
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 4.r),
-                                child: Container(
-                                  height: 1.r,
-                                  color: AppColors.mainColor,
-                                ),
-                              ),
-                            );
-                          },
+                            ),
+                            15.verticalSpace,
+                          ],
                         ),
                       ),
-                      15.verticalSpace,
-                    ],
-                  ),
-                ),
               ),
             );
           } else if (state is GetNotificationLoading) {

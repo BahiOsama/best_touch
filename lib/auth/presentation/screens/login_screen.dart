@@ -78,7 +78,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     padding: AppPadding.homepadding,
                     child: ListView(
                       children: [
-                        InkWell(
+                        GestureDetector(
                           onTap: () {},
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,

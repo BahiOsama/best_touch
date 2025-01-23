@@ -105,7 +105,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           ),
                         ),
                         SizedBox(
-                          height: 40.r,
+                          height: 25.r,
                         ),
                         Text(
                           "Create new account".tr(),
@@ -181,10 +181,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           "Password".tr(),
                           style: AppStyles.regular12,
                         ),
-                        SizedBox(height: 6.r),
+                        SizedBox(height: 5.r),
                         TextFieldWidget(
                           textEditingController: passwordEditingController,
-                          keyboardType: TextInputType.number,
                           validator: (value) {
                             if (value!.isEmpty || value.length < 6) {
                               return 'Please Enter Valid Password';
@@ -328,6 +327,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               bottomNavigationBar: Image.asset(
                 AppImages.wave,
                 width: double.infinity,
+                height: 75.r,
                 fit: BoxFit.fill,
               ),
             ),

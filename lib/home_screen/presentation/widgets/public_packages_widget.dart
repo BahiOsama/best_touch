@@ -38,10 +38,13 @@ class PublicPackagesWidget extends StatelessWidget {
                   .copyWith(color: AppColors.transperantBlack),
             ),
             5.verticalSpace,
-            ConfirmOrGoBackk(
-              text: 'Buy'.tr(),
-              width: 135.r,
-              height: 36.r,
+            Padding(
+              padding: const EdgeInsets.only(right: 6),
+              child: ConfirmOrGoBackk(
+                text: 'Buy'.tr(),
+                width: 135.r,
+                height: 36.r,
+              ),
             )
           ],
         ),

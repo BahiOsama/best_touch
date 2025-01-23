@@ -169,7 +169,7 @@ class _GoogleMapsScreenState extends State<GoogleMapsScreen> {
                   if (center.latitude.abs() < 0.01 &&
                       center.longitude.abs() < 0.01) {
                     setState(() {
-                      currentAddress = 'Invalid location selected.';
+                      currentAddress = 'Fetching address...';
                     });
                     return;
                   }

@@ -68,8 +68,16 @@ dependencies:
   webview_flutter_wkwebview: ^3.17.0
   url_launcher: ^6.1.7
   flutter_native_splash: ^2.4.4
+  lottie: ^2.2.0
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.13.1
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "images/Logo (1).png"
+
   flutter_test:
     sdk: flutter
 

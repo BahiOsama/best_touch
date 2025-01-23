@@ -5,17 +5,23 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:second_project/helper/app_colors.dart';
 import 'package:second_project/helper/app_images.dart';
 import 'package:second_project/helper/app_styles.dart';
+import 'package:second_project/helper/page_route_fadeTransition.dart';
+import 'package:second_project/home_screen/presentation/screens/data_form.dart';
 
 class MonthlyPackagesWidget extends StatelessWidget {
+  final ValueNotifier<String?> selectedCarWash;
+
   const MonthlyPackagesWidget({
     super.key,
+    required this.selectedCarWash,
   });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Fluttertoast.showToast(
+        if (selectedCarWash.value == null) {
+          Fluttertoast.showToast(
             msg:
                 "Please select the car wash from the list to choose the package you want"
                     .tr(),
@@ -23,10 +29,26 @@ class MonthlyPackagesWidget extends StatelessWidget {
             gravity: ToastGravity.CENTER,
             timeInSecForIosWeb: 1,
             backgroundColor: Colors.red.withOpacity(.1),
-            textColor: const Color(
-              0xff992600,
+            textColor: const Color(0xff992600),
+            fontSize: 16.0.r,
+          );
+        } else {
+          Navigator.push(
+            context,
+            AnimationRoute(
+              page: const DataForm(),
             ),
-            fontSize: 16.0.r);
+          );
+          Fluttertoast.showToast(
+            msg: "Selected Car Wash: ${selectedCarWash.value}".tr(),
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.CENTER,
+            timeInSecForIosWeb: 1,
+            backgroundColor: Colors.green.withOpacity(.1),
+            textColor: Colors.green,
+            fontSize: 16.0.r,
+          );
+        }
       },
       child: Card(
         elevation: 4,

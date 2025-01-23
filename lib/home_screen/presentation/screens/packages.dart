@@ -26,6 +26,7 @@ class Packages extends StatefulWidget {
 
 class _PackagesState extends State<Packages> {
   bool isCurrentSelected = true;
+  ValueNotifier<String?> selectedCarWash = ValueNotifier(null);
 
   @override
   Widget build(BuildContext context) {
@@ -112,7 +113,11 @@ class _PackagesState extends State<Packages> {
                           )
                         : Row(
                             children: [
-                              const ChooseWasherDialog(),
+                              ChooseWasherDialog(
+                                onCarWashSelected: (selectedCarWashName) {
+                                  selectedCarWash.value = selectedCarWashName;
+                                },
+                              ),
                               10.horizontalSpace,
                               InkWell(
                                 onTap: () {
@@ -150,10 +155,11 @@ class _PackagesState extends State<Packages> {
                               itemCount: 20,
                               gridDelegate:
                                   const SliverGridDelegateWithFixedCrossAxisCount(
-                                      mainAxisSpacing: 3,
-                                      crossAxisSpacing: 1,
-                                      childAspectRatio: 1.4,
-                                      crossAxisCount: 2),
+                                mainAxisSpacing: 3,
+                                crossAxisSpacing: 1,
+                                childAspectRatio: 1.4,
+                                crossAxisCount: 2,
+                              ),
                               itemBuilder: (context, index) {
                                 return const PublicPackagesWidget();
                               },
@@ -166,7 +172,9 @@ class _PackagesState extends State<Packages> {
                               ),
                               itemCount: 7,
                               itemBuilder: (context, index) {
-                                return const MonthlyPackagesWidget();
+                                return MonthlyPackagesWidget(
+                                  selectedCarWash: selectedCarWash,
+                                );
                               },
                             ),
                           )
